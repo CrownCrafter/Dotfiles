@@ -59,7 +59,10 @@
 
   ;; This is set to 't' to avoid mail syncing issues when using mbsync
   (setq mu4e-change-filenames-when-moving t)
-
+;;store org-mode links to messages
+(require 'org-mu4e)
+;;store link to message if in header view, not to header query
+(setq mu4e-org-link-query-in-headers-mode nil)
   ;; Refresh mail using isync every 10 minutes
   (setq mu4e-update-interval (* 10 60))
   (setq mu4e-get-mail-command "mbsync -a")
@@ -102,4 +105,6 @@
 ;;       :desc "Random XKCD"
 ;;       "a" #'xkcd-rand
 ;;       )
+(require 'elfeed-goodies)
+(elfeed-goodies/setup)
 (add-to-list 'same-window-regexps "\*vterm: .*\*")

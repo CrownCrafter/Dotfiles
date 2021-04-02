@@ -75,8 +75,15 @@
       (:maildir "/[Gmail]/Trash"     :key ?t)
       (:maildir "/[Gmail]/Drafts"    :key ?d)
       (:maildir "/[Gmail]/All Mail"  :key ?a))))
+(setq smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 465
+      smtpmail-stream-type  'ssl)
+;; Make sure plain text mails flow correctly for recipients
+(setq mu4e-compose-format-flowed t)
+(setq mu4e-compose-signature "Ayush M")
 (use-package org-mime
   :ensure t)
+(add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart)
 ;; (mu4e-alert-set-default-style 'libnotify)
 ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
 ;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)

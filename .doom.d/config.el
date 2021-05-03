@@ -16,7 +16,6 @@
 (setq display-line-numbers-type t)
 
 (setq browse-url-browser-function 'eww-browse-url)
-(mu4e t)
 ;; (use-package mu4e
   ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
 
@@ -51,45 +50,6 @@
 ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpmime)
 ;; (setq mml-secure-smime-sign-with-sender "ayush.mudunuru@gmail.com")
 ;; (setq mu4e-compose-signature "Ayush M")
-(use-package mu4e
-  :ensure nil
-  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  :defer 20 ; Wait until 20 seconds after startup
-  :config
-
-  ;; This is set to 't' to avoid mail syncing issues when using mbsync
-  (setq mu4e-change-filenames-when-moving t)
-;;store org-mode links to messages
-(require 'org-mu4e)
-;;store link to message if in header view, not to header query
-(setq mu4e-org-link-query-in-headers-mode nil)
-  ;; Refresh mail using isync every 10 minutes
-  (setq mu4e-update-interval (* 10 60))
-  (setq mu4e-get-mail-command "mbsync -a")
-  (setq mu4e-root-maildir "~/Mail")
-
-  (setq mu4e-drafts-folder "/[Gmail]/Drafts")
-  (setq mu4e-sent-folder   "/[Gmail]/Sent Mail")
-  (setq mu4e-refile-folder "/[Gmail]/All Mail")
-  (setq mu4e-trash-folder  "/[Gmail]/Trash")
-(setq mu4e-maildir-shortcuts
-    '((:maildir "/Inbox"    :key ?i)
-      (:maildir "/[Gmail]/Sent Mail" :key ?s)
-      (:maildir "/[Gmail]/Trash"     :key ?t)
-      (:maildir "/[Gmail]/Drafts"    :key ?d)
-      (:maildir "/[Gmail]/All Mail"  :key ?a))))
-(setq smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 465
-      smtpmail-stream-type  'ssl)
-;; Make sure plain text mails flow correctly for recipients
-(setq mu4e-compose-format-flowed t)
-(setq mu4e-compose-signature "Ayush M")
-(use-package org-mime
-  :ensure t)
-(add-hook 'message-send-hook 'org-mime-confirm-when-no-multipart)
-;; (mu4e-alert-set-default-style 'libnotify)
-;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
 
 (if (daemonp)
     (message "Loading in the daemon!")

@@ -8,10 +8,6 @@
 (require 'erc-dcc)
 (setq org-directory "~/Programs/Org/")
 
-(use-package org
-  :config
-  (setq  org-ellipsis " ▾"
-        org-hide-emphasis-markers t))
 
 (setq display-line-numbers-type t)
 

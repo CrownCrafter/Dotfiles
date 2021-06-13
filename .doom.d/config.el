@@ -1,14 +1,9 @@
-(setq user-full-name "Ayush Mudunuru"
-      user-mail-address "ayush.mudunuru@gmail.com")
-
 (setq doom-font (font-spec :family "Source Code Pro" :size 20 :weight 'Semi-Bold)
       doom-variable-pitch-font (font-spec :family "Source Code Pro" :size 20 :weight 'Semi-Bold))
 
 (setq doom-theme 'doom-gruvbox)
 (require 'erc-dcc)
 (setq org-directory "~/Programs/Org/")
-
-
 (setq display-line-numbers-type t)
 
 (setq browse-url-browser-function 'eww-browse-url)

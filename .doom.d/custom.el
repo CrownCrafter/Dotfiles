@@ -5,8 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auth-source-save-behavior nil)
- '(elfeed-feeds
-   '("https://news.google.com/rss" "https://www.theverge.com/rss/index.xml" "https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA" "https://in.ign.com/feed.xml"))
+ '(elfeed-feeds '("https://archlinux.org/feeds/news.rss" Arch Linux ""))
  '(elfeed-search-filter "@2-days-ago ")
  '(package-selected-packages '(ercn dmenu))
  '(send-mail-function 'mailclient-send-it)

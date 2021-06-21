@@ -29,8 +29,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec "emacs --daemon"
 exec volumeicon
-exec "discord --start-minimized"
-exec "pamac-tray"
 exec lxsession
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton

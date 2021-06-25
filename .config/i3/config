@@ -60,11 +60,8 @@ bindsym $mod+Return exec "alacritty"
 bindsym $mod+Shift+q kill
 #File Manager
 bindsym $mod+Shift+f exec "pcmanfm"
-#Matrix
-bindsym $mod+Shift+m exec "alacritty --command unimatrix"
 #Spawn Emacs
 bindsym $mod+Shift+d exec "emacsclient -c -n"
-bindsym $mod+Shift+g exec "emacsclient -n -c --eval '(mu4e)'"
 #Shutdown
 bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
 

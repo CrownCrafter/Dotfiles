@@ -27,7 +27,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 #Autostart
 exec --no-startup-id nm-applet
-exec "emacs --daemon"
 exec volumeicon
 exec lxsession
 exec --no-startup-id nitrogen --restore

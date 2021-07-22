@@ -53,7 +53,7 @@ bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -lo
      -color-urgent '#222222, #b1b4b3, #222222, #77003d, #b1b4b3' \
      -kb-row-select 'Tab' -kb-row-tab ''"
 # start a terminal
-bindsym $mod+Return exec "alacritty"
+bindsym $mod+t exec "alacritty"
 
 # kill focused window
 bindsym $mod+Shift+q kill

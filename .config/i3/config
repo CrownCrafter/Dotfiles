@@ -54,7 +54,8 @@ bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -lo
      -kb-row-select 'Tab' -kb-row-tab ''"
 # start a terminal
 bindsym $mod+t exec "alacritty"
-
+#Htop
+bindsym $mod+Escape exec "alacritty -e htop"
 # kill focused window
 bindsym $mod+Shift+q kill
 #File Manager

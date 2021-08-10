@@ -27,7 +27,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 #Autostart
 exec --no-startup-id nm-applet
-exec volumeicon
+exec pasystray
 exec lxsession
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
@@ -39,7 +39,14 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
+#Media Controls
+bindsym XF86AudioPlay exec "playerctl play-pause"
+bindsym XF86AudioPrev exec "playerctl previous"
+bindsym XF86AudioNext exec "playerctl next"
+#Lockscreen
+bindsym XF86ScreenSaver exec "i3lock -e -f -i /home/crown/Documents/L3GZjmL.png -p default"
+#Suspend
+#bindsym XF86WakeUp exec "systemctl suspend"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # Start Menu
@@ -56,12 +63,14 @@ bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -lo
 bindsym $mod+t exec "alacritty"
 #Htop
 bindsym $mod+Escape exec "alacritty -e htop"
+#Screenshot
+bindsym Print exec "xfce4-screenshooter"
 # kill focused window
 bindsym $mod+Shift+q kill
 #File Manager
 bindsym $mod+Shift+f exec "pcmanfm"
 #Spawn Emacs
-bindsym $mod+Shift+d exec "emacsclient -c -n"
+bindsym $mod+Shift+d exec "emacs"
 #Shutdown
 bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
 
@@ -281,8 +290,8 @@ bar {
                statusline $yellow
                # workspaces section
                #                    border  backgr. text
-               focused_workspace    $gray $aqua $darkgray
-               inactive_workspace   $darkgray $darkgray $yellow
+               focused_workspace    $darkgray $darkgray $yellow
+               inactive_workspace   $darkgray $darkgray $bg
                active_workspace     $gray $darkgray $yellow
                urgent_workspace     $red $red $bg
         }

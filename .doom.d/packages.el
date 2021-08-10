@@ -51,5 +51,3 @@
 (package! pdf-tools)
 (package! eww)
 (package! org-mime)
-(package! elfeed-goodies)
-(package! org-mode)

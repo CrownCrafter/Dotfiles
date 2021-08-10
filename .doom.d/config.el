@@ -56,6 +56,3 @@
 ;;       :desc "Random XKCD"
 ;;       "a" #'xkcd-rand
 ;;       )
-(require 'elfeed-goodies)
-(elfeed-goodies/setup)
-(add-to-list 'same-window-regexps "\*vterm: .*\*")

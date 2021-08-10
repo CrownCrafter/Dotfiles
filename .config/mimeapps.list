@@ -1,5 +1,5 @@
 [Added Associations]
-application/pdf=firefox.desktop;libreoffice-draw.desktop;emacs.desktop;
+application/pdf=emacs.desktop;firefox.desktop;libreoffice-draw.desktop;
 text/plain=mousepad.desktop;
 inode/directory=xfce4-file-manager.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;

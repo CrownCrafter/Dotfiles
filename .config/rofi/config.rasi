@@ -1,5 +1,5 @@
 configuration {
-	font: ""Source Code Pro" 14";
+	font: ""Arial" 14";
 	theme: "/usr/share/rofi/themes/gruvbox-dark.rasi";
 }
 @import "/usr/share/rofi/themes/gruvbox-dark-soft.rasi"

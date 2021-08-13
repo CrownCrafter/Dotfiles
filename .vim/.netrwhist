@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/crown/.config/i3status'
 let g:netrw_dirhist_8='/home/crown/.config'
 let g:netrw_dirhist_7='/home/crown/.config/i3'
 let g:netrw_dirhist_6='/home/crown/.config'

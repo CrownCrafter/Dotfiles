@@ -25,9 +25,9 @@ font pango:Cantarell Regular 14
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-#Autostart
+#autostart
+exec "libinput-gestures-setup start"
 exec --no-startup-id nm-applet
-exec pasystray
 exec lxsession
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton

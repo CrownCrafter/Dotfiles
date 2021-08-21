@@ -29,6 +29,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec "libinput-gestures-setup start"
 exec --no-startup-id nm-applet
 exec lxsession
+exec megasync
+exec pasystray
+exec redshift
+exec indicator-keylog
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 exec --no-startup-id dunst
@@ -281,6 +285,7 @@ client.background       #F8F8F2
 bar {
         position top
         i3bar_command i3bar
+	tray_output primary
 
     status_command i3status | ~/Documents/i3spotifystatus/pystatus.py
         colors {

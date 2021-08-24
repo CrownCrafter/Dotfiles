@@ -32,7 +32,7 @@ exec lxsession
 exec megasync
 exec pasystray
 exec redshift
-exec indicator-keylog
+exec indicator-lockkeys
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 exec --no-startup-id dunst
@@ -72,7 +72,7 @@ bindsym Print exec "xfce4-screenshooter"
 # kill focused window
 bindsym $mod+Shift+q kill
 #File Manager
-bindsym $mod+Shift+f exec "pcmanfm"
+bindsym $mod+Shift+f exec "thunar"
 #Spawn Emacs
 bindsym $mod+Shift+d exec "emacs"
 #Shutdown

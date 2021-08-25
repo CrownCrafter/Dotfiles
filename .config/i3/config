@@ -31,8 +31,7 @@ exec --no-startup-id nm-applet
 exec lxsession
 exec megasync
 exec pasystray
-exec redshift
-exec indicator-lockkeys
+exec indicator-keylock
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
 exec --no-startup-id dunst

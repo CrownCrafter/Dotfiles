@@ -71,7 +71,7 @@ bindsym Print exec "xfce4-screenshooter"
 # kill focused window
 bindsym $mod+Shift+q kill
 #File Manager
-bindsym $mod+Shift+f exec "thunar"
+bindsym $mod+Shift+f exec "ranger"
 #Spawn Emacs
 bindsym $mod+Shift+d exec "alacritty -e emacs -nw"
 #Shutdown

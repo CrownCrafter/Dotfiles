@@ -28,9 +28,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #autostart
 exec "libinput-gestures-setup start"
 exec --no-startup-id nm-applet
-exec lxsession
+#exec lxsession
 exec megasync
 exec pasystray
+exec --no-startup-id lxqt-policykit-agent
 exec indicator-keylock
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
@@ -53,15 +54,7 @@ bindsym XF86ScreenSaver exec "i3lock -e -f -i /home/crown/Documents/L3GZjmL.png 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # Start Menu
-bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -location 1 -width 100 \
-     -lines 2 -line-margin 0 -line-padding 1 \
-     -separator-style none  -columns 9 -bw 0 \
-     -hide-scrollbar \
-     -color-window '#222222, #222222, #b1b4b3' \
-     -color-normal '#222222, #b1b4b3, #222222, #005577, #b1b4b3' \
-     -color-active '#222222, #b1b4b3, #222222, #007763, #b1b4b3' \
-     -color-urgent '#222222, #b1b4b3, #222222, #77003d, #b1b4b3' \
-     -kb-row-select 'Tab' -kb-row-tab ''"
+bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -hide-scrollbar -color-window '#222222, #222222, #b1b4b3' -color-normal '#222222, #b1b4b3, #222222, #005577, #b1b4b3' -color-active '#222222, #b1b4b3, #222222, #007763, #b1b4b3' -color-urgent '#222222, #b1b4b3, #222222, #77003d, #b1b4b3' -kb-row-select 'Tab' -kb-row-tab ''"
 # start a terminal
 bindsym $mod+t exec "alacritty"
 #Htop
@@ -71,7 +64,7 @@ bindsym Print exec "xfce4-screenshooter"
 # kill focused window
 bindsym $mod+Shift+q kill
 #File Manager
-bindsym $mod+Shift+f exec "ranger"
+bindsym $mod+Shift+f exec "alacritty -e ranger"
 #Spawn Emacs
 bindsym $mod+Shift+d exec "alacritty -e emacs -nw"
 #Shutdown

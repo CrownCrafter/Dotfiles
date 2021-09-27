@@ -26,17 +26,18 @@ font pango:Cantarell Regular 14
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 #autostart
-exec "libinput-gestures-setup start"
-exec --no-startup-id nm-applet
+#exec "libinput-gestures-setup start"
+#exec --no-startup-id nm-applet
 #exec lxsession
-exec megasync
-exec pasystray
-exec --no-startup-id lxqt-policykit-agent
-exec indicator-keylock
+#exec blueman-applet
+#exec megasync
+#exec pasystray
+#exec --no-startup-id lxqt-policykit-agent
+#exec indicator-keylock
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton
-exec --no-startup-id dunst
-exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id dunst
+#exec --no-startup-id xfce4-power-manager
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -48,19 +49,20 @@ bindsym XF86AudioPlay exec "playerctl play-pause"
 bindsym XF86AudioPrev exec "playerctl previous"
 bindsym XF86AudioNext exec "playerctl next"
 #Lockscreen
-bindsym XF86ScreenSaver exec "i3lock -e -f -i /home/crown/Documents/L3GZjmL.png -p default"
+#bindsym XF86ScreenSaver exec "i3lock -e -f -i /home/crown/Documents/L3GZjmL.png -p default"
 #Suspend
 #bindsym XF86WakeUp exec "systemctl suspend"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # Start Menu
-bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -hide-scrollbar -color-window '#222222, #222222, #b1b4b3' -color-normal '#222222, #b1b4b3, #222222, #005577, #b1b4b3' -color-active '#222222, #b1b4b3, #222222, #007763, #b1b4b3' -color-urgent '#222222, #b1b4b3, #222222, #77003d, #b1b4b3' -kb-row-select 'Tab' -kb-row-tab ''"
+#bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -hide-scrollbar -color-window '#222222, #222222, #b1b4b3' -color-normal '#222222, #b1b4b3, #222222, #005577, #b1b4b3' -color-active '#222222, #b1b4b3, #222222, #007763, #b1b4b3' -color-urgent '#222222, #b1b4b3, #222222, #77003d, #b1b4b3' -kb-row-select 'Tab' -kb-row-tab ''"
+bindsym $mod+d exec --no-startup-id "qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.activateLauncherMenu"
 # start a terminal
 bindsym $mod+t exec "alacritty"
 #Htop
 bindsym $mod+Escape exec "alacritty -e htop"
 #Screenshot
-bindsym Print exec "xfce4-screenshooter"
+#bindsym Print exec "xfce4-screenshooter"
 # kill focused window
 bindsym $mod+Shift+q kill
 #File Manager
@@ -68,7 +70,9 @@ bindsym $mod+Shift+f exec "alacritty -e ranger"
 #Spawn Emacs
 bindsym $mod+Shift+d exec "alacritty -e emacs -nw"
 #Shutdown
-bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
+#bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
+bindsym $mod+Shift+Return exec --no-startup-id "qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1"
+
 
 # change focus
 bindsym $mod+h focus left
@@ -96,7 +100,7 @@ bindsym $mod+Shift+Right move right
 # split in horizontal orientation
 bindsym $mod+a split h
 
-bindsym $mod+XF86Power exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
+#bindsym $mod+XF86Power exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
 
 # split in vertical orientation
 bindsym $mod+s split v
@@ -274,33 +278,53 @@ client.placeholder      #282828 #282828 #ebdbb2 #282828 #282828
 
 client.background       #F8F8F2
 
-bar {
-        position top
-        i3bar_command i3bar
-	tray_output primary
+#bar {
+#       position top
+#	mode hide
+#       i3bar_command i3bar
+#       tray_output primary
 
-    status_command i3status | ~/Documents/i3spotifystatus/pystatus.py
-        colors {
-               # bar background color
-               background $bg
-               # text color used for blocks that do not have a color specified.
-               statusline $yellow
-               # workspaces section
-               #                    border  backgr. text
-               focused_workspace    $darkgray $darkgray $yellow
-               inactive_workspace   $darkgray $darkgray $bg
-               active_workspace     $gray $darkgray $yellow
-               urgent_workspace     $red $red $bg
-        }
+#   status_command i3status | ~/Documents/i3spotifystatus/pystatus.py
+#       colors {
+#              # bar background color
+#              background $bg
+#              # text color used for blocks that do not have a color specified.
+#              statusline $yellow
+#              # workspaces section
+#              #                    border  backgr. text
+#              focused_workspace    $darkgray $darkgray $yellow
+#              inactive_workspace   $darkgray $darkgray $bg
+#              active_workspace     $gray $darkgray $yellow
+#              urgent_workspace     $red $red $bg
+#       }
 
 
 
-}
+#}
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
 client.focused          $blue $blue $darkgray $purple $darkgray
 client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+client.urgent           $red $red $darkgray $red $red
 # Window Rules
 for_window [class=".*"] border pixel 0
+#KDE
+# Plasma compatibility improvements
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+no_focus [class="plasmashell" window_type="notification"]

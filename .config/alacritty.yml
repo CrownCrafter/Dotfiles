@@ -127,35 +127,55 @@ draw_bold_text_with_bright_colors: true
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
 # custom_cursor_colors: false
-# Colors (Gruvbox dark)
+# Nord
 colors:
-  # Default colors
   primary:
-    # hard contrast: background = '0x1d2021'
-    background: '#282828'
-    # soft contrast: background = '0x32302f'
-    foreground: '#A89984'
-
-normal:
-    black:   '#202020'
-    red:     '#734541'
-    green:   '#5b6048'
-    yellow:  '#af865a'
-    blue:    '#535c5c'
-    magenta: '#775759'
-    cyan:    '#6d715e'
-    white:   '#A89984'
-
-  # Bright colors
-bright:
-    black:   '#402e2e'
-    red:     '#733a34'
-    green:   '#586039'
-    yellow:  '#8f6840'
-    blue:    '#444b4b'
-    magenta: '#614445'
-    cyan:    '#585c49'
-    white:   '#b0a390'
+    background: '#2e3440'
+    foreground: '#d8dee9'
+    dim_foreground: '#a5abb6'
+  cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  vi_mode_cursor:
+    text: '#2e3440'
+    cursor: '#d8dee9'
+  selection:
+    text: CellForeground
+    background: '#4c566a'
+  search:
+    matches:
+      foreground: CellBackground
+      background: '#88c0d0'
+    bar:
+      background: '#434c5e'
+      foreground: '#d8dee9'
+  normal:
+    black: '#3b4252'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#88c0d0'
+    white: '#e5e9f0'
+  bright:
+    black: '#4c566a'
+    red: '#bf616a'
+    green: '#a3be8c'
+    yellow: '#ebcb8b'
+    blue: '#81a1c1'
+    magenta: '#b48ead'
+    cyan: '#8fbcbb'
+    white: '#eceff4'
+  dim:
+    black: '#373e4d'
+    red: '#94545d'
+    green: '#809575'
+    yellow: '#b29e75'
+    blue: '#68809a'
+    magenta: '#8c738c'
+    cyan: '#6d96a5'
+    white: '#aeb3bb'
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once

@@ -308,7 +308,7 @@ client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $darkgray $red $red
 # Window Rules
-for_window [class=".*"] border pixel 0
+for_window [class=".*"] border pixel 0; border_radius 15
 #KDE
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable

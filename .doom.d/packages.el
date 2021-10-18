@@ -48,3 +48,4 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+(package! calibredb :pin "cb93563d0ec9e0c653210bc574f9546d1e7db437")

@@ -68,7 +68,7 @@ bindsym $mod+Shift+q kill
 #File Manager
 bindsym $mod+Shift+f exec "alacritty -e ranger"
 #Spawn Emacs
-bindsym $mod+Shift+d exec "alacritty -e emacs -nw"
+bindsym $mod+Shift+d exec "emacs"
 #Shutdown
 #bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
 bindsym $mod+Shift+Return exec --no-startup-id "qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1"

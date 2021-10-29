@@ -1,6 +1,6 @@
 [Added Associations]
 application/octet-stream=vim.desktop;
-application/pdf=emacs.desktop;firefox.desktop;libreoffice-draw.desktop;
+application/pdf=firefox.desktop;emacs.desktop;libreoffice-draw.desktop;
 application/rss+xml=emacs.desktop;
 application/x-7z-compressed=xarchiver.desktop;
 application/x-compressed-tar=userapp-tar -xf-KGXPY0.desktop;

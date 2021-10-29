@@ -34,7 +34,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #exec pasystray
 #exec --no-startup-id lxqt-policykit-agent
 #exec indicator-keylock
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
+exec "wal -R"
+exec "~/.fehbg"
 exec --no-startup-id compton
 #exec --no-startup-id dunst
 #exec --no-startup-id xfce4-power-manager
@@ -165,6 +167,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Firefox
 bindsym $mod+Shift+c exec firefox
+#Chromium
+bindsym $mod+Ctrl+Shift+c exec chromium
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -260,23 +264,22 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-# set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-client.focused          #b8bb26 #b8bb26 #ebdbb2 #b8bb26 #b8bb26
-client.focused_inactive #282828 #282828 #ebdbb2 #282828 #282828
-client.unfocused        #282828 #282828 #ebdbb2 #282828 #282828
-client.urgent           #282828 #282828 #fb4934 #282828 #282828
-client.placeholder      #282828 #282828 #ebdbb2 #282828 #282828
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
 
-client.background       #F8F8F2
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 #bar {
 #       position top

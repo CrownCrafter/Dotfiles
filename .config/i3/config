@@ -35,9 +35,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #exec --no-startup-id lxqt-policykit-agent
 #exec indicator-keylock
 #exec --no-startup-id nitrogen --restore
+exec --no-startup-id compton
 exec "wal -R"
 exec "~/.fehbg"
-exec --no-startup-id compton
+exec "emacs --daemon"
+#exec "glava --desktop --force-mod=bars"
 #exec --no-startup-id dunst
 #exec --no-startup-id xfce4-power-manager
 # Use pactl to adjust volume in PulseAudio.
@@ -63,14 +65,15 @@ bindsym $mod+d exec --no-startup-id "qdbus org.kde.plasmashell /PlasmaShell org.
 bindsym $mod+t exec "alacritty"
 #Htop
 bindsym $mod+Escape exec "alacritty -e htop"
+#Cmus
 #Screenshot
 #bindsym Print exec "xfce4-screenshooter"
 # kill focused window
 bindsym $mod+Shift+q kill
 #File Manager
-bindsym $mod+Shift+f exec "alacritty -e ranger"
+bindsym $mod+Shift+f exec "thunar"
 #Spawn Emacs
-bindsym $mod+Shift+d exec "emacs"
+bindsym $mod+Shift+d exec "emacsclient -c -a 'emacs'"
 #Shutdown
 #bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
 bindsym $mod+Shift+Return exec --no-startup-id "qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1"
@@ -311,7 +314,7 @@ client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $darkgray $red $red
 # Window Rules
-for_window [class=".*"] border pixel 0; border_radius 15
+for_window [class=".*"] border pixel 0;
 #KDE
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable

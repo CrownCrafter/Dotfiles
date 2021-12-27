@@ -35,11 +35,12 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #exec --no-startup-id lxqt-policykit-agent
 #exec indicator-keylock
 #exec --no-startup-id nitrogen --restore
-exec --no-startup-id compton
+exec "picom"
 exec "wal -R"
 exec "~/.fehbg"
 exec "emacs --daemon"
-#exec "glava --desktop --force-mod=bars"
+exec "krunner -d"
+# exec "sleep 60 && glava --desktop"
 #exec --no-startup-id dunst
 #exec --no-startup-id xfce4-power-manager
 # Use pactl to adjust volume in PulseAudio.

@@ -1,9 +1,9 @@
 [Added Associations]
 application/octet-stream=vim.desktop;
-application/pdf=emacs.desktop;firefox.desktop;libreoffice-draw.desktop;
+application/pdf=libreoffice-draw.desktop;emacs.desktop;firefox.desktop;
 application/rss+xml=emacs.desktop;
 application/x-7z-compressed=xarchiver.desktop;
-application/x-compressed-tar=userapp-tar -xf-KGXPY0.desktop;
+application/x-compressed-tar=xarchiver.desktop;userapp-tar -xf-KGXPY0.desktop;
 application/x-extension-htm=firefox.desktop;librewolf.desktop;
 application/x-extension-html=firefox.desktop;librewolf.desktop;
 application/x-extension-shtml=firefox.desktop;librewolf.desktop;
@@ -20,6 +20,7 @@ x-scheme-handler/https=firefox.desktop;xfce4-web-browser.desktop;librewolf.deskt
 x-scheme-handler/mailto=userapp-Thunderbird-63PU00.desktop;xfce4-mail-reader.desktop;
 x-scheme-handler/trash=xfce4-file-manager.desktop;
 application/xhtml+xml=librewolf.desktop;
+application/x-ms-dos-executable=wine.desktop;
 
 [Default Applications]
 application/lrf=calibre-lrfviewer.desktop
@@ -187,3 +188,4 @@ application/pdf=firefox.desktop
 application/json=firefox.desktop
 application/xhtml+xml=librewolf.desktop
 application/xml=firefox.desktop
+x-scheme-handler/fcade=fcade-quark.desktop

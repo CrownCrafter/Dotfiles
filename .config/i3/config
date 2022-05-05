@@ -26,12 +26,12 @@ font pango:Cantarell Regular 14
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 #autostart
-#exec "libinput-gestures-setup start"
-#exec --no-startup-id nm-applet
+exec "libinput-gestures-setup start"
+exec --no-startup-id nm-applet
 #exec lxsession
-#exec blueman-applet
-#exec megasync
-#exec pasystray
+exec blueman-applet
+exec megasync
+exec pasystray
 #exec --no-startup-id lxqt-policykit-agent
 #exec indicator-keylock
 #exec --no-startup-id nitrogen --restore
@@ -39,10 +39,9 @@ exec "picom"
 exec "wal -R"
 exec "~/.fehbg"
 exec "emacs --daemon"
-exec "krunner -d"
 # exec "sleep 60 && glava --desktop"
-#exec --no-startup-id dunst
-#exec --no-startup-id xfce4-power-manager
+exec --no-startup-id dunst
+exec --no-startup-id xfce4-power-manager
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -60,8 +59,7 @@ bindsym XF86AudioNext exec "playerctl next"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # Start Menu
-#bindsym $mod+d exec --no-startup-id "rofi -show drun -modi drun,run,windowcd -line-margin 0 -line-padding 1 -separator-style none -columns 9 -bw 0 -hide-scrollbar -color-window '#222222, #222222, #b1b4b3' -color-normal '#222222, #b1b4b3, #222222, #005577, #b1b4b3' -color-active '#222222, #b1b4b3, #222222, #007763, #b1b4b3' -color-urgent '#222222, #b1b4b3, #222222, #77003d, #b1b4b3' -kb-row-select 'Tab' -kb-row-tab ''"
-bindsym $mod+d exec --no-startup-id "qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.activateLauncherMenu"
+bindsym $mod+d exec "rofi -show drun -font 'mono 10'" 
 # start a terminal
 bindsym $mod+t exec "alacritty"
 #Htop
@@ -76,8 +74,7 @@ bindsym $mod+Shift+f exec "thunar"
 #Spawn Emacs
 bindsym $mod+Shift+d exec "emacsclient -c -a 'emacs'"
 #Shutdown
-#bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:rofi-power-menu"
-bindsym $mod+Shift+Return exec --no-startup-id "qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1"
+bindsym $mod+Shift+Return exec "rofi -show power-menu -modi power-menu:~/.local/bin/rofi-power-menu"
 
 
 # change focus
@@ -223,6 +220,8 @@ gaps outer -4
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 #smart_borders on
+default_border none
+default_floating_border none
 
 # Press $mod+Shift+g to enter the gap mode. 
 # Choose o or i for modifying outer/inner gaps.
@@ -273,25 +272,52 @@ mode "$mode_gaps_outer" {
 # from the generated scheme.
 # NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $fg #f0f0f0
+set_from_resource $bg #f0f0f0
 
 # class                 border  backgr. text indicator child_border
-client.focused          $bg     $bg     $fg  $bg       $bg
-client.focused_inactive $bg     $bg     $fg  $bg       $bg
-client.unfocused        $bg     $bg     $fg  $bg       $bg
-client.urgent           $bg     $bg     $fg  $bg       $bg
-client.placeholder      $bg     $bg     $fg  $bg       $bg
+#client.focused          $bg     $bg     $fg  $bg       $bg
+#client.focused_inactive $bg     $bg     $fg  $bg       $bg
+#client.unfocused        $bg     $bg     $fg  $bg       $bg
+#client.urgent           $bg     $bg     $fg  $bg       $bg
+#client.placeholder      $bg     $bg     $fg  $bg       $bg
+#
+#client.background       $bg
 
-client.background       $bg
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 
-#bar {
+# #2f343f
+
+# set colors
+set $bg-color            #000000
+set $inactive-bg-color   #000000
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+bar {
+  position top
+  mode hide
+  status_command i3blocks
+  colors {
+                background $bg-color
+                separator #757575
+                #                  border             background         text
+                focused_workspace  $bg-color          $bg-color          $text-color
+                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+  }
+}
+
+
+bar {
 #       position top
-#	mode hide
+#	#mode hide
 #       i3bar_command i3bar
 #       tray_output primary
-
-#   status_command i3status | ~/Documents/i3spotifystatus/pystatus.py
+#
+#   #status_command i3status | ~/Documents/i3spotifystatus/pystatus.py
 #       colors {
 #              # bar background color
 #              background $bg
@@ -304,34 +330,34 @@ client.background       $bg
 #              active_workspace     $gray $darkgray $yellow
 #              urgent_workspace     $red $red $bg
 #       }
-
-
-
+#
+#
+#
 #}
 # blue gruvbox
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $darkgray $red $red
+#client.focused          $blue $blue $darkgray $purple $darkgray
+#client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+#client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+#client.urgent           $red $red $darkgray $red $red
 # Window Rules
-for_window [class=".*"] border pixel 0;
+#for_window [class=".*"] border pixel 0;
 #KDE
 # Plasma compatibility improvements
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-
-for_window [class="yakuake"] floating enable
-for_window [class="systemsettings"] floating enable
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] border none, move down -380px, move right 625px
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-no_focus [class="plasmashell" window_type="notification"]
+#for_window [window_role="pop-up"] floating enable
+#for_window [window_role="task_dialog"] floating enable
+#
+#for_window [class="yakuake"] floating enable
+#for_window [class="systemsettings"] floating enable
+#for_window [class="plasmashell"] floating enable;
+#for_window [class="Plasma"] floating enable; border none
+#for_window [title="plasma-desktop"] floating enable; border none
+#for_window [title="win7"] floating enable; border none
+#for_window [class="krunner"] floating enable; border none
+#for_window [class="Kmix"] floating enable; border none
+#for_window [class="Klipper"] floating enable; border none
+#for_window [class="Plasmoidviewer"] floating enable; border none
+#for_window [class="(?i)*nextcloud*"] floating disable
+#for_window [class="plasmashell" window_type="notification"] border none, move down -380px, move right 625px
+#for_window [title="Desktop — Plasma"] kill; floating enable; border none
+#no_focus [class="plasmashell" window_type="notification"]
